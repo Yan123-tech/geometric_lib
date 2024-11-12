@@ -19,9 +19,7 @@ sizes = {
 def calc(fig, func, size):
     assert fig in figs
     assert func in funcs
-
-    result = eval(f'{fig}.{func}(*{size})')
-    print(f'{func} of {fig} is {result}')
+    return eval(f'{fig}.{func}(*{size})')
 
 if __name__ == "__main__":
     func = ''
@@ -37,4 +35,5 @@ if __name__ == "__main__":
     while len(size) != sizes.get(f"{func}-{fig}", 1):
         size = list(map(int, input(f"Input figure sizes separated by space, expected {sizes.get(f'{func}-{fig}', 1)} values:\n").split(' ')))
 
-    calc(fig, func, size)
+    result = calc(fig, func, size)
+    print(f'{func} of {fig} is {result}')
