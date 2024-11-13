@@ -28,7 +28,7 @@ class TestCalculate(unittest.TestCase):
         fig = "pentagon"
         func = "area"
         size = [3]
- 
+
         # Act & Assert
         with self.assertRaises(ValueError):
             calc(fig, func, size)
@@ -36,7 +36,7 @@ class TestCalculate(unittest.TestCase):
     def test_calc_invalid_function(self):
         # Arrange
         fig = "circle"
-        func = "volume"  
+        func = "volume"
         size = [3]
 
         # Act & Assert
