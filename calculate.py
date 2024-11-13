@@ -6,21 +6,40 @@ import triangle
 figs = ['circle', 'square', 'rectangle', 'triangle']
 funcs = ['perimeter', 'area']
 sizes = {
-    "area-circle":  1,
-    "perimeter-circle":  1,
-    "area-square":  1,
-    "perimeter-square":  1,
-    "area-rectangle":  2,
-    "perimeter-rectangle":  2,
-    "area-triangle":  2,
-    "perimeter-triangle":  3,
+    "area-circle": 1,
+    "perimeter-circle": 1,
+    "area-square": 1,
+    "perimeter-square": 1,
+    "area-rectangle": 2,
+    "perimeter-rectangle": 2,
+    "area-triangle": 2,
+    "perimeter-triangle": 3,
 }
 
 
 def calc(fig, func, size):
-    assert fig in figs
-    assert func in funcs
-    return eval(f'{fig}.{func}(*{size})')
+    if fig == 'circle':
+        if func == 'area':
+            return circle.area(*size)
+        elif func == 'perimeter':
+            return circle.perimeter(*size)
+    elif fig == 'square':
+        if func == 'area':
+            return square.area(*size)
+        elif func == 'perimeter':
+            return square.perimeter(*size)
+    elif fig == 'rectangle':
+        if func == 'area':
+            return rectangle.area(*size)
+        elif func == 'perimeter':
+            return rectangle.perimeter(*size)
+    elif fig == 'triangle':
+        if func == 'area':
+            return triangle.area(*size)
+        elif func == 'perimeter':
+            return triangle.perimeter(*size)
+    else:
+        raise ValueError("Invalid figure or function")
 
 
 if __name__ == "__main__":
