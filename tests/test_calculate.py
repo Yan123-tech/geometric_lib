@@ -24,8 +24,10 @@ class TestCalculate(unittest.TestCase):
 
     def test_calc_invalid_figure(self):
         # Arrange
-        fig, func, size = "pentagon", "area", [3]
-
+        fig = "pentagon"
+        func = "area"
+        size = [3]
+        
         # Act & Assert
         with self.assertRaises(AssertionError):
             calc(fig, func, size)
@@ -40,7 +42,9 @@ class TestCalculate(unittest.TestCase):
 
     def test_calc_invalid_size(self):
         # Arrange
-        fig, func, size = "square", "area", [-4]
+        fig = "circle"
+        func = "volume"  
+        size = [-4]
 
         # Act & Assert
         with self.assertRaises(ValueError):

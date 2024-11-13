@@ -18,6 +18,11 @@ sizes = {
 
 
 def calc(fig, func, size):
+    if fig not in figs:
+        raise ValueError("Invalid figure")
+    if func not in funcs:
+        raise ValueError("Invalid function")
+
     if fig == 'circle':
         if func == 'area':
             return circle.area(*size)
