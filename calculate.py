@@ -13,15 +13,39 @@ sizes = {
     "area-rectangle": 2,
     "perimeter-rectangle": 2,
     "area-triangle": 2,
-    "perimeter-triangle": 3
+    "perimeter-triangle": 3,
 }
 
-def calc(fig, func, size):
-    assert fig in figs
-    assert func in funcs
 
-    result = eval(f'{fig}.{func}(*{size})')
-    print(f'{func} of {fig} is {result}')
+def calc(fig, func, size):
+    if fig not in figs:
+        raise ValueError("Invalid figure")
+    if func not in funcs:
+        raise ValueError("Invalid function")
+
+    if fig == 'circle':
+        if func == 'area':
+            return circle.area(*size)
+        elif func == 'perimeter':
+            return circle.perimeter(*size)
+    elif fig == 'square':
+        if func == 'area':
+            return square.area(*size)
+        elif func == 'perimeter':
+            return square.perimeter(*size)
+    elif fig == 'rectangle':
+        if func == 'area':
+            return rectangle.area(*size)
+        elif func == 'perimeter':
+            return rectangle.perimeter(*size)
+    elif fig == 'triangle':
+        if func == 'area':
+            return triangle.area(*size)
+        elif func == 'perimeter':
+            return triangle.perimeter(*size)
+    else:
+        raise ValueError("Invalid figure or function")
+
 
 if __name__ == "__main__":
     func = ''
@@ -29,12 +53,21 @@ if __name__ == "__main__":
     size = list()
 
     while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}:\n")
+        fig = input(f"Enter figure name, available are {figs}: \n")
 
     while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}:\n")
+        func = input(f"Enter function name, available are {funcs}: \n")
 
     while len(size) != sizes.get(f"{func}-{fig}", 1):
-        size = list(map(int, input(f"Input figure sizes separated by space, expected {sizes.get(f'{func}-{fig}', 1)} values:\n").split(' ')))
+        size = list(
+            map(
+                int,
+                input(
+                    f"Input figure sizes separated by space, expected "
+                    f"{sizes.get(f'{func}-{fig}', 1)} values: \n"
+                ).split()
+            )
+        )
 
-    calc(fig, func, size)
+    result = calc(fig, func, size)
+    print(f'{func} of {fig} is {result}')
