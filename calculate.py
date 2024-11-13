@@ -6,14 +6,14 @@ import triangle
 figs = ['circle', 'square', 'rectangle', 'triangle']
 funcs = ['perimeter', 'area']
 sizes = {
-    "area-circle": 1,
-    "perimeter-circle": 1,
-    "area-square": 1,
-    "perimeter-square": 1,
-    "area-rectangle": 2,
-    "perimeter-rectangle": 2,
-    "area-triangle": 2,
-    "perimeter-triangle": 3,
+    "area-circle":  1,
+    "perimeter-circle":  1,
+    "area-square":  1,
+    "perimeter-square":  1,
+    "area-rectangle":  2,
+    "perimeter-rectangle":  2,
+    "area-triangle":  2,
+    "perimeter-triangle":  3,
 }
 
 
@@ -47,4 +47,3 @@ if __name__ == "__main__":
 
     result = calc(fig, func, size)
     print(f'{func} of {fig} is {result}')
-    
