@@ -29,22 +29,22 @@ class TestCalculate(unittest.TestCase):
         size = [3]
         
         # Act & Assert
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             calc(fig, func, size)
 
     def test_calc_invalid_function(self):
         # Arrange
-        fig, func, size = "circle", "volume", [3]
+        fig = "circle"
+        func = "volume"  
+        size = [3]
 
         # Act & Assert
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             calc(fig, func, size)
 
     def test_calc_invalid_size(self):
         # Arrange
-        fig = "circle"
-        func = "volume"  
-        size = [-4]
+        fig, func, size = "square", "area", [-4]
 
         # Act & Assert
         with self.assertRaises(ValueError):
