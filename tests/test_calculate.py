@@ -1,6 +1,7 @@
 import unittest
 from calculate import calc
 
+
 class TestCalculate(unittest.TestCase):
     def test_calc_circle_area(self):
         # Arrange
@@ -27,7 +28,7 @@ class TestCalculate(unittest.TestCase):
         fig = "pentagon"
         func = "area"
         size = [3]
-        
+ 
         # Act & Assert
         with self.assertRaises(ValueError):
             calc(fig, func, size)

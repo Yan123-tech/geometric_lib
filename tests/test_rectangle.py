@@ -1,6 +1,7 @@
 import unittest
 import rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def test_area_positive(self):
         # Arrange

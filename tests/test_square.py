@@ -1,6 +1,7 @@
 import unittest
 import square
 
+
 class TestSquare(unittest.TestCase):
     def test_area_positive(self):
         # Arrange

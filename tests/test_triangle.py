@@ -1,6 +1,7 @@
 import unittest
 import triangle
 
+
 class TestTriangle(unittest.TestCase):
     def test_area_positive(self):
         # Arrange
