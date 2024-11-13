@@ -13,13 +13,15 @@ sizes = {
     "area-rectangle": 2,
     "perimeter-rectangle": 2,
     "area-triangle": 2,
-    "perimeter-triangle": 3
+    "perimeter-triangle": 3,
 }
+
 
 def calc(fig, func, size):
     assert fig in figs
     assert func in funcs
     return eval(f'{fig}.{func}(*{size})')
+
 
 if __name__ == "__main__":
     func = ''
@@ -33,7 +35,16 @@ if __name__ == "__main__":
         func = input(f"Enter function name, available are {funcs}:\n")
 
     while len(size) != sizes.get(f"{func}-{fig}", 1):
-        size = list(map(int, input(f"Input figure sizes separated by space, expected {sizes.get(f'{func}-{fig}', 1)} values:\n").split(' ')))
+        size = list(
+            map(
+                int,
+                input(
+                    f"Input figure sizes separated by space, expected "
+                    f"{sizes.get(f'{func}-{fig}', 1)} values:\n"
+                ).split()
+            )
+        )
 
     result = calc(fig, func, size)
     print(f'{func} of {fig} is {result}')
+    
